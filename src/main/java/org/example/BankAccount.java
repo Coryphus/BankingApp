@@ -36,7 +36,12 @@ public class BankAccount {
     }
 
     public void withdraw(double withdraw) {
-        this.balance -= withdraw;
+        if((balance-withdraw) < minimumBalance) {
+            System.out.println("Error, you are withdrawing beyond your minimum balance of " + minimumBalance + "\n");
+            System.out.println("You have a balance of "+ balance);
+        } else {
+            balance -= withdraw;
+        }
     }
 
 
